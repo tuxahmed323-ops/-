@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منوّرة ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff, #ffe6f0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    direction: rtl;
+}
+
+.container {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    text-align: center;
+    max-width: 95%;
+    width: 420px;
+    z-index: 2;
+}
+
+h1 {
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #d63384;
+    color: white;
+    border: none;
+    padding: 15px 28px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #b82c6f;
+    transform: scale(1.05);
+}
+
+.message {
+    display: none;
+    margin-top: 25px;
+    font-size: 17px;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* Date animation */
+.date {
+    font-size: 22px;
+    color: #d63384;
+    font-weight: bold;
+    margin: 15px 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.date span {
+    font-size: 16px;
+    color: #555;
+    font-weight: normal;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    color: #ff5fa2;
+    font-size: 18px;
+    animation: fall linear infinite;
+    z-index: 1;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>إلى قلبي منوّرة ❤️</h1>
+    <button onclick="startLove()">دوسي هنا يا روحي</button>
+
+    <div class="message" id="message">
+        منوّرتي،<br><br>
+        أنا آسف لو زعلتك في يوم أو قصّرت من غير ما أقصد.<br>
+        إنتِ مش بس حبيبتي، إنتِ روحي وقلبي ومراتي.<br>
+
+        <div class="date">
+            2 / 2<br>
+            <span>يوم ما قلبي نطق باسمك ❤️</span>
+        </div>
+
+        ومن اليوم ده وأنا كل يوم بحبك أكتر.<br><br>
+        سامحيني…<br>
+        عشان من غيرك الدنيا مطفيّة،<br>
+        ومعاكِ كل حاجة منوّرة ❤️
+    </div>
+</div>
+
+<!-- Music -->
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/27/audio_4e1a7b2b36.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startLove() {
+    document.getElementById("message").style.display = "block";
+    document.getElementById("music").play();
+    createHearts();
+}
+
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
